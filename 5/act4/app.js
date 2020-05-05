@@ -1,12 +1,13 @@
 
-$(document).ready(function ($h1 + 1) {
+$(document).ready(function () {
   var $h2 = $("<h2>");
-  $h2.text(1)
-  var plusOne = (0)
-  $("#btnSubmit").on("click", function () {
+  var plusOne = 0
+  $h2.text(plusOne)
+  $("#btnSubmit").on("click", function (event) {
+    event.preventDefault()
     plusOne++;
     $h1.attr("class", "red");
-    return $h1 + 1;
+    return $h1++;
   });
 });
 
@@ -18,7 +19,7 @@ $(document).ready(function () {
   $("body").prepend($h1);
   $h1.text(counter);
 ​
-  $("#btnSubmit").on("click", function () {
+  $("#btnSubmit").on("click", function (event) {
     counter++;
     $h1.text(counter);
   });

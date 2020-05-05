@@ -12,11 +12,11 @@ $(document).ready(function () {
     textArray.push(textInput);
     console.log(textArray);
     $("#textInput").val("");
-    $("#textContainer").prepend("<h1>${textInput}</h1>");
-    $("#textContainer").html("");
+    // $(".todoContainer").append(`<h5>${textInput}</h5>`);
+    $(".todoContainer").html("");
     for (var i = 0; i < textArray.length; i++)
-      $("#textContainer").prepend("<h1>${textArray[i]}</h1>");
+      $(".todoContainer").append(`<p>${textArray[i]}</p>`);
   });
 
-  $("#delete").html("<h1>This will replace</h1>");
+  $(".delete").html("<h5>to delete</h5>");
 });

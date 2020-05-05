@@ -6,7 +6,6 @@ var convertedDate = moment(myBday, "MM/DD/YYYY");
 
 console.log(convertedDate.format("DDdd"));
 console.log(convertedDate.format("dddd"));
-console.log(typeOf(convertedDate).format("dddd"));
 
 var time = moment().format("h:mm:ss a");
 var time = moment().format("h a");

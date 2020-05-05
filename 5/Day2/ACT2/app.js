@@ -14,7 +14,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#alert").on("click", function () {
+  $("#alert").on$("click", function () {
     $("#alert").hide();
   });
   $(document).on("click", ".btn", function () {
