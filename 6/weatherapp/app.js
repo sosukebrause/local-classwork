@@ -1,9 +1,9 @@
 $(document).ready(function () {
-  // var input = "";
+  $("#input").val("94117");
   $("#submitbtn").on("click", function (e) {
     e.preventDefault();
-    input = $("input").val();
-    $("input").val("");
+    input = $("#input").val();
+    $("#input").val("");
 
     $.ajax({
       type: "GET",
@@ -12,13 +12,14 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
       var city = response.name;
+      var desc = response.weather[0].description;
       var temp = response.main.temp;
       var tempC = temp - 273.15;
-      var tempF = (1.8 * tempC + 32).toFixed(2);
+      var tempF = (1.8 * tempC + 32).toFixed(1);
 
       $("body").append(`<div>city name: ${city}</div>`);
-      $("body").append(`<div>Temp: ${temp}</div>`);
-      $("body").append(`<div>Celcius ${tempC}</div>`);
+      $("body").append(`<div>Weather: ${desc}</div>`);
+      // $("body").append(`<div>Celcius ${tempC}</div>`);
       $("body").append(`<div>Fahrenheit: ${tempF}</div>`);
     });
   });

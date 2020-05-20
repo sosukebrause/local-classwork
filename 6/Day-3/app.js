@@ -1,62 +1,42 @@
 $(document).ready(function () {
-  var textInput = "";
-  try {
-    var storeData = JSON.parse(window.localStorage.getItem("storeData"));
-  } catch {
-    error;
-  }
-  var apiKey = "9ac0f9d8";
-  if (storeData !== null) {
-    for (var i = 0; i < storeData.length; i++) {
-      $("#movieList").append(`<li class="oldSearch">${storeData[i]}</li>`);
+  console.log("hello movies");
+});
+$("#submitbtn").on("click", function (e) {
+  e.preventDefault();
+  input = $("#input").val();
+  $("input").val("");
+  apiKey = "d106054f";
+
+  $.ajax({
+    type: "GET",
+    url: `http://www.omdbapi.com/?t=${input}&apikey=${apiKey}`,
+  }).then(function (res) {
+    console.log(res);
+    var title = res.Title;
+    var year = res.Year;
+    var Actors = res.Actors;
+    var poster = res.Poster;
+    console.log(poster);
+    // $("body").append(`<img src="${poster}"/>`);
+    $("poster").prepend(poster);
+    $("#title").text(title);
+    $("#year").text(year);
+    if (res.Year < 2000) {
+      $("#classic").text(`${year} This is a classic`);
+    } else {
+      $("#classic").text("this one is modern");
     }
-  }
-  $(document).on("click", ".oldSearch", function () {
-    var newSearch = $(this).html();
-    runImbd(newSearch);
+    $("#history").append(`<li>${title}</li>`);
+
+    // function renderList(str1, str2, str3) {
+    //   var title = str1;
+    //   var year = str2;
+    //   var poster = str3;
+    // }
   });
-  $("#reset").on("click", function () {
-    window.localStorage.removeItem("storeData");
-    storeData = null;
-    window.location.href = "index.html";
+  // renderList();
+
+  $(document).on("click", "#history", function () {
+    console.log("hello");
   });
-  $("#submitBtn").on("click", function (e) {
-    e.preventDefault();
-    textInput = $("#textInput").val();
-    if (!storeData) {
-      storeData = [];
-    }
-    storeData.push(textInput);
-    console.log(storeData);
-    window.localStorage.setItem("storeData", JSON.stringify(storeData));
-    if (storeData !== null) {
-      var lastItem = storeData.length - 1;
-      $("#movieList").append(
-        `<li class="oldSearch">${storeData[storeData.length - 1]}</li>`
-      );
-    }
-    $("#textInput").val("");
-    runImbd(textInput);
-  });
-  function renderInfo(str1, str2, str3, str4) {
-    $("#title").text(str1);
-    $("#actors").text(str2);
-    $("#rated").text(str3);
-    $("#year").text(str4);
-  }
-  function runImbd(str1) {
-    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: `http://www.omdbapi.com/?t=${str1}&apikey=${apiKey}`,
-    }).then(function (res) {
-      console.log(res);
-      if (parseInt(res.Year) < 2000) {
-        $("#classic").text("This is a classic movie");
-      } else {
-        $("#classic").text("This is a modern movie");
-      }
-      renderInfo(res.Title, res.Actors, res.Rated, res.Year);
-    });
-  }
 });
