@@ -7,8 +7,12 @@ const readFileAsync = util.promisify(fs.readFile);
 
 const config = { headers: { accept: "application/json" } };
 
-axios.get("https://icanhazdadjoke.com/", config)
-  .then(function(res) {
-
+axios
+  .get("https://icanhazdadjoke.com/", config)
+  .then(function (res) {
     console.log(res.data);
+    appendFileAsync("jokes.txt", res.data.joke + "\n");
+  })
+  .then(() => {
+    return readFileAsync("jokes.txt", "utf8").then((data) => console.log(data));
   });

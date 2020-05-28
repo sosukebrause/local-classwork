@@ -17,13 +17,13 @@ $(document).ready(function () {
     }
   }
 
-  // function refreshList() {
-  //   $("#textInput").val("");
-  //   $("#textContainer").html("");
-  //   for (i = 0; i < arr1.length; i++) {
-  //     $("#textContainer").prepend(`<h4 class="btn">${arr1[i]}</h4>`);
-  //   }
-  // }
+  function refreshList() {
+    $("#textInput").val("");
+    $("#textContainer").html("");
+    for (i = 0; i < arr1.length; i++) {
+      $("#textContainer").prepend(`<h4 class="btn">${arr1[i]}</h4>`);
+    }
+  }
   $(document).on("click", ".btn", function () {
     console.log($(this).text());
   });

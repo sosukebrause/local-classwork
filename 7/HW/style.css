@@ -1,0 +1,6 @@
+.fade {
+  display: none;
+  /* or... visibility: hidden;
+  btn.classList.add("hide-me")
+  */
+}
