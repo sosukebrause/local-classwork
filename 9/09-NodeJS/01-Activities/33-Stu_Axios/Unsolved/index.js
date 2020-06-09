@@ -13,8 +13,14 @@ inquirer
     axios.get(queryUrl).then((res) => {
       console.log(res);
       const repoNames = res.data.map(function (repo) {
-        console.log(repo.name);
+        return repo.name;
+        // const { username } = inquirer.name;
       });
-      const { username } = inquirer.name;
+      console.log(repo.name);
+      const repoNamesStr = repoNames.join("\n");
+      fs.writeFile("repos.txt", repoNamesStr, (err) => {
+        if (err) throw err;
+        console.log(`saved ${repoNames.length} repos`);
+      });
     });
   });

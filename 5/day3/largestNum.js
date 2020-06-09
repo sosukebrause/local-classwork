@@ -8,10 +8,9 @@ module.exports = function largestNum(arr) {
   }
    return largestNumber;
 };
-// function largestNum(arr){
+  console.log(largestNumber);
+function largestNum(arr){
 for (let i = 0; i < array.length; i++) {
   if (arr[i] > largestNumber) {
-    largestNumber = arr[i];
+    largestNumber = arr[i]
   }
-  return largestNumber
-  console.log(largestNumber);

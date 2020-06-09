@@ -1,0 +1,14 @@
+class Property {
+  constructor(address) {
+    this.address = address;
+    this.people = [];
+    this.rooms = [];
+    this.rentCost = [];
+  }
+  addToRooms(arr) {
+    this.rooms = [...this.rooms, ...arr];
+  }
+  addToPeople(arr) {
+    this.people = [...this.people, ...arr];
+  }
+}

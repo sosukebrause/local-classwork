@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  console.log("hello");
+
   var textAdded = "";
   var arr1 = [];
 
@@ -7,15 +9,7 @@ $(document).ready(function () {
     textAdded = $("#textInput").val();
     arr1.push(textAdded);
     refreshList();
-    renderTodos();
   });
-  function renderTodos() {
-    $("#textInput").val("");
-    $("#cardContainer").html("");
-    for (var i = 0; i < arr1.length; i++) {
-      $("#cardContainer").prepend(`<h1 class="btn">${arr1[i]}</h1>`);
-    }
-  }
 
   function refreshList() {
     $("#textInput").val("");
@@ -27,4 +21,5 @@ $(document).ready(function () {
   $(document).on("click", ".btn", function () {
     console.log($(this).text());
   });
+  $(".btnDanger").html("");
 });

@@ -1,0 +1,25 @@
+inquirer:
+
+create folder
+touch index.js
+`npm init -y`
+//this will create package.json
+`npm i inquirer`
+//this will create node_modules and package-lock.json
+//you can now delete the package-lock.json and node_modules and just hit `npm install` and you will get back the two, and the inquirer in the dependencies
+
+axios
+installing: npm i axios
+// Node.js style require
+const axios = require('axios')
+
+Similar to jQuery’s $.ajax function, you can make any kind of HTTP request by passing an options object to Axios:
+
+axios({
+  method: 'post',
+  url: '/login',
+  data: {
+    user: 'brunos',
+    lastName: 'ilovenodejs'
+  }
+});
