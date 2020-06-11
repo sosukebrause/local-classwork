@@ -1,9 +1,9 @@
 const math = require("./math.js");
 
-// var operation = process.argv[2];
+var operation = process.argv[2];
 
-var num1 = parseInt(process.argv[2]);
-var num2 = parseInt(process.argv[3]);
+var num1 = parseInt(process.argv[3]);
+var num2 = parseInt(process.argv[4]);
 
 switch (operation) {
   case "sum":
@@ -21,5 +21,5 @@ switch (operation) {
   default:
     break;
 }
-console.log(num1 + num2);
+// console.log(num1 + num2);
 // console.log(math.sum(5, 7));
