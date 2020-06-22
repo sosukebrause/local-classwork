@@ -23,3 +23,15 @@ axios({
     lastName: 'ilovenodejs'
   }
 });
+
+mkdir client
+touch index.jtml app.js
+cd ..
+mkdir routes
+
+in server.jsconst express = require("express)
+const app = express()
+const PORT = 2000
+
+app.listen(PORT, ())=> cons.log(~listening att http://localhost)
+npm i nodemon
