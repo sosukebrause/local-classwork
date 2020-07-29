@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Napoleon",
+    "species": "hamster",
+    "age": 0.25,
+    "gender": "M"
+  },
+  {
+    "name": "Lokiz",
+    "species": "dog",
+    "age": 5,
+    "gender": "M"
+  },
+  {
+    "name": "Frankz",
+    "species": "cat",
+    "age": 10,
+    "gender": "M"
+  },
+  {
+    "name": "Sushiz",
+    "species": "goldfish",
+    "age": 0.1,
+    "gender": "M"
+  }
+]

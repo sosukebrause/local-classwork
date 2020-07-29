@@ -14,7 +14,6 @@ const getNotes = () => {
     method: "GET",
   });
 };
-
 // A function for saving a note to the db
 const saveNote = (note) => {
   return $.ajax({
@@ -23,7 +22,6 @@ const saveNote = (note) => {
     method: "POST",
   });
 };
-
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
@@ -31,7 +29,6 @@ const deleteNote = (id) => {
     method: "DELETE",
   });
 };
-
 // If there is an activeNote, display it, otherwise render empty inputs
 const renderActiveNote = () => {
   $saveNoteBtn.hide();

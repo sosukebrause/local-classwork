@@ -14,12 +14,12 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
-  database: "wizard_schools_db"
+  password: "1F@ptoyournan",
+  database: "wizard_schools_db",
 });
 
 // Initiate MySQL Connection.
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
     return;
@@ -28,11 +28,10 @@ connection.connect(function(err) {
 });
 
 // Routes
-app.get("/", function(req, res) {
-
+app.get("/", function (req, res) {
   // If the main route is hit, then we initiate a SQL query to grab all records.
   // All of the resulting records are stored in the variable "result."
-  connection.query("SELECT * FROM schools", function(err, result) {
+  connection.query("SELECT * FROM schools", function (err, result) {
     if (err) throw err;
     // We then begin building out HTML elements for the page.
     var html = "<h1> Magical Schools </h1>";
@@ -41,10 +40,18 @@ app.get("/", function(req, res) {
     html += "<ul>";
 
     // We then use the retrieved records from the database to populate our HTML file.
+    year = parseInt(result.year);
+    console.log(typeof year);
     for (var i = 0; i < result.length; i++) {
       html += "<li><p> ID: " + result[i].id + "</p>";
-      html += "<p>School: " + result[i].name + " </p></li>";
+      html += "<p>School: " + result[i].name + " </p>";
+      html += "<p>Year: " + result[i].year + " </p></li>";
     }
+
+    // for (var i = 0; i < result.length; i++) {
+    //   html += "<li><p> ID: " + result[i].id + "</p>";
+    //   html += "<p>School: " + result[i].name + " </p></li>";
+    // }
 
     // We close our unordered list.
     html += "</ul>";
@@ -55,7 +62,7 @@ app.get("/", function(req, res) {
 });
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
